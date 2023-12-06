@@ -2,29 +2,33 @@
 class Main {
     // Метод, запускающий программу
     public static void main(String[] args) {
-        // Создаем новую систему управления проектами
-        ProjectManagementSystem pms = new ProjectManagementSystem();
+        // Создаем новое приложение для мониторинга погоды
+        WeatherApp app = new WeatherApp();
 
+        // Создаем новых пользователей
         // Создаем новых пользователей
         User alice = new User("Алиса");
         User bob = new User("Боб");
         User charlie = new User("Чарли");
 
-        // Создаем новые задачи
-        Task task1 = new Task("Написать отчет", "Написать отчет о проделанной работе за месяц", "01.01.2024", "");
-        Task task2 = new Task("Протестировать программу", "Протестировать работоспособность программы на разных платформах", "15.12.2023", "");
+// Создаем новые объекты погоды для разных регионов
+        Weather weather1 = new Weather("Москва", -5.0, 80.0, 750.0, 10.0);
+        Weather weather2 = new Weather("Париж", 10.0, 60.0, 760.0, 0.0);
+        Weather weather3 = new Weather("Нью-Йорк", 5.0, 70.0, 770.0, 5.0);
 
-        // Добавляем задачи в систему
-        pms.addTask(task1);
-        pms.addTask(task2);
+// Добавляем регионы и их погодные условия в приложение
+        app.addRegion(weather1);
+        app.addRegion(weather2);
+        app.addRegion(weather3);
 
-        // Подписываем пользователей на уведомления о назначении задач
-        alice.subscribe(task1);
-        bob.subscribe(task2);
-        charlie.subscribe(task1);
+// Подписываем пользователей на уведомления о погоде в разных регионах
+        alice.subscribe("Москва", app);
+        bob.subscribe("Париж", app);
+        charlie.subscribe("Нью-Йорк", app);
 
-        // Назначаем задачи пользователям
-        pms.assignTask(task1, alice);
-        pms.assignTask(task2, bob);
+// Обновляем погодные условия в регионах
+        app.updateWeather("Москва", -10.0, 90.0, 740.0, 20.0);
+        app.updateWeather("Париж", 15.0, 50.0, 765.0, 0.0);
+        app.updateWeather("Нью-Йорк", 10.0, 65.0, 775.0, 0.0);
     }
 }
