@@ -19,5 +19,9 @@ class Main {
         System.out.println("Количество жилых зданий: " + city.countBuildingsByType("Жилой"));
         System.out.println("Количество коммерческих зданий: " + city.countBuildingsByType("Коммерческий"));
         System.out.println("Количество промышленных зданий: " + city.countBuildingsByType("Промышленный"));
+
+        //Пользовательский интефейс тест
+        // CitySimulator citySimulator = new CitySimulator("Симулятор города");
+
     }
 }
